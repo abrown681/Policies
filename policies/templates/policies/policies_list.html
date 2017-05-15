@@ -3,7 +3,18 @@
         <title>Auth Policies</title>
     </head>
     <body>
-        <p>Hi there!</p>
-        <p>It works!</p>
+        <div>
+            <h1><a href="/">Organizational Policies List</a></h1>
+        </div>
+
+        {% for rule in rules %}
+            <div>
+                <p>published: {{rule.published_date }}</p>
+                <h1><a href="">{{ rule.name }}</a></h1>
+                <p>{{ rule.priority|linebreaksbr }}</p>
+                <p>{{ rule.clear_level|linebreaksbr }}</p>
+                <p>{{ rule.citizenship|linebreaksbr }}</p>
+            </div>
+        {% endfor %}
     </body>
 </html>
