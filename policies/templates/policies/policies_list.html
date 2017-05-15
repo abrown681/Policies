@@ -9,11 +9,11 @@
 
         {% for rule in rules %}
             <div>
-                <p>published: {{rule.published_date }}</p>
-                <h1><a href="">{{ rule.name }}</a></h1>
-                <p>{{ rule.priority|linebreaksbr }}</p>
-                <p>{{ rule.clear_level|linebreaksbr }}</p>
-                <p>{{ rule.citizenship|linebreaksbr }}</p>
+                <h2><a href="">{{ rule.name }}</a></h2>
+                <p>Priority level: {{ rule.priority|linebreaksbr }}</p>
+                <p>Clearance level: {{ rule.clear_level|linebreaksbr }}</p>
+                <p>Citizenship: {{ rule.citizenship|linebreaksbr }}</p>
+                <p>Published: {{rule.published_date }}</p>
             </div>
         {% endfor %}
     </body>
