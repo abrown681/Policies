@@ -1,20 +1,37 @@
+{% load staticfiles %}
 <html>
     <head>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href="//fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="{% static 'css/policies.css' %}">
         <title>Auth Policies</title>
     </head>
     <body>
-        <div>
+        <div class="page-header">
             <h1><a href="/">Organizational Policies List</a></h1>
         </div>
 
-        {% for rule in rules %}
-            <div>
-                <h2><a href="">{{ rule.name }}</a></h2>
-                <p>Priority level: {{ rule.priority|linebreaksbr }}</p>
-                <p>Clearance level: {{ rule.clear_level|linebreaksbr }}</p>
-                <p>Citizenship: {{ rule.citizenship|linebreaksbr }}</p>
-                <p>Published: {{rule.published_date }}</p>
+
+        <div class="content container">
+            <div class="row">
+                <div class="col-md-8">
+                    {% for rule in rules %}
+                        <div class="rule">
+                            <h2><a href="">{{ rule.name }}</a></h2>
+                            <p>Priority level: {{ rule.priority|linebreaksbr }}</p>
+                            <p>Clearance level: {{ rule.clear_level|linebreaksbr }}</p>
+                            <p>Citizenship: {{ rule.citizenship|linebreaksbr }}</p>
+                            <div class="date">
+                                <p>Published: {{ rule.published_date }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
-        {% endfor %}
+        </div>
     </body>
 </html>
+
+
+
